@@ -1,11 +1,11 @@
-# Step 1: Use official Node.js image as base
-FROM node:16 AS build
+# Step 1: Use official Node.js image as base (Node.js 20)
+FROM node:20 AS build
 
 # Step 2: Set working directory
 WORKDIR /app
 
 # Step 3: Copy package.json and package-lock.json
-COPY package*.json ./
+COPY package*.json ./ 
 
 # Step 4: Install dependencies
 RUN npm install
