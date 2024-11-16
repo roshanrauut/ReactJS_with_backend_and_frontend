@@ -1,19 +1,19 @@
 # Step 1: Use official Node.js image as base
-FROM node:16
+FROM node:20
 
-# Step 2: Set working directory
+# Step 2: Set working directory in the container
 WORKDIR /usr/src/app
 
-# Step 3: Copy package.json and package-lock.json
-COPY package*.json ./
+# Step 3: Copy package.json and package-lock.json from the backend folder
+COPY backend/package*.json ./
 
 # Step 4: Install dependencies
 RUN npm install
 
-# Step 5: Copy the rest of the backend code
-COPY . .
+# Step 5: Copy the rest of the backend code from the backend folder
+COPY backend/ .
 
-# Step 6: Expose the API port
+# Step 6: Expose the API port (replace 3000 with the actual port used by your backend)
 EXPOSE 3000
 
 # Step 7: Start the Node.js app
